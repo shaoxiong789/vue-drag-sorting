@@ -1,0 +1,38 @@
+<template>
+  <div>
+    <dragboot :list="lists">
+      <dragbox v-for="(item,$index) in lists" :item="item" indicate="name">
+        <div slot="dragperch">
+          预留空位
+        </div>
+        <drag slot="drag" :item="item">
+          <div :style="{background:item.color}">
+            拖拽目标{{item.name}}
+          </div>
+        </drag>
+      </dragbox>
+    </dragboot>
+  </div>
+</template>
+<script>
+import dragboot from '../src/dragboot.vue'
+import drag from '../src/drag.vue'
+import dragbox from '../src/dragbox.vue'
+
+export default {
+  components:{dragboot,drag,dragbox},
+  data() {
+      return {
+        lists:[
+          {name:'1',color:'red'},
+          {name:'2',color:'orange'},
+          {name:'3',color:'yellow'},
+          {name:'4',color:'green'},
+          {name:'5',color:'indigo'},
+          {name:'6',color:'blue'},
+          {name:'7',color:'purple'}
+        ]
+      }
+  }
+}
+</script>
