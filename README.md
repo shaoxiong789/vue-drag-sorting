@@ -26,9 +26,7 @@ $ npm install git://github.com/shaoxiong789/vue-drag.git --save
   </div>
 </template>
 <script>
-import dragboot from '../src/dragboot.vue'
-import drag from '../src/drag.vue'
-import dragbox from '../src/dragbox.vue'
+import {dragboot,drag,dragbox} from 'vue-drag'
 export default {
   components:{dragboot,drag,dragbox},
   data() {
