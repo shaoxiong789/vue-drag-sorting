@@ -78,7 +78,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 	
-	var _dragbox = __webpack_require__(13);
+	var _dragbox = __webpack_require__(12);
 	
 	Object.defineProperty(exports, 'dragbox', {
 	  enumerable: true,
@@ -255,7 +255,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  /* script */
 	  __webpack_require__(11),
 	  /* template */
-	  __webpack_require__(12),
+	  __webpack_require__(15),
 	  /* scopeId */
 	  "data-v-921a2972",
 	  /* cssModules */
@@ -316,7 +316,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	
 	
 	// module
-	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"dragboot.vue","sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"dragboot.vue","sourceRoot":"webpack://"}]);
 	
 	// exports
 
@@ -633,24 +633,29 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 11 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	//
-	//
-	//
-	//
-	//
+	
+	var _dragbox = __webpack_require__(12);
+	
+	var _dragbox2 = _interopRequireDefault(_dragbox);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
-	  components: {},
+	  components: { dragbox: _dragbox2.default },
 	  props: {
 	    list: {
 	      type: Array,
+	      required: false
+	    },
+	    indicate: {
+	      type: String,
 	      required: true
 	    }
 	  },
@@ -663,38 +668,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	
 	  methods: {}
-	};
+	}; //
+	//
+	//
+	//
+	//
+	//
+	//
 
 /***/ },
 /* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('div', {
-	    staticClass: "dragboot"
-	  }, [_vm._t("default")], 2)
-	},staticRenderFns: []}
-	module.exports.render._withStripped = true
-	if (false) {
-	  module.hot.accept()
-	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-921a2972", module.exports)
-	  }
-	}
-
-/***/ },
-/* 13 */
-/***/ function(module, exports, __webpack_require__) {
-
-	
-	/* styles */
-	__webpack_require__(14)
-	
 	var Component = __webpack_require__(2)(
 	  /* script */
-	  __webpack_require__(16),
+	  __webpack_require__(13),
 	  /* template */
-	  __webpack_require__(17),
+	  __webpack_require__(14),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -721,55 +711,21 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 14 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(15);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	if(content.locals) module.exports = content.locals;
-	// add the styles to the DOM
-	var update = __webpack_require__(9)("1f9bd592", content, false);
-	// Hot Module Replacement
-	if(false) {
-	 // When the styles change, update the <style> tags
-	 if(!content.locals) {
-	   module.hot.accept("!!../node_modules/.0.21.0@css-loader/index.js?sourceMap!../node_modules/.11.3.3@vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-37d34086\",\"scoped\":false,\"hasInlineConfig\":false}!../node_modules/.11.3.3@vue-loader/lib/selector.js?type=styles&index=0!./dragbox.vue", function() {
-	     var newContent = require("!!../node_modules/.0.21.0@css-loader/index.js?sourceMap!../node_modules/.11.3.3@vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-37d34086\",\"scoped\":false,\"hasInlineConfig\":false}!../node_modules/.11.3.3@vue-loader/lib/selector.js?type=styles&index=0!./dragbox.vue");
-	     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-	     update(newContent);
-	   });
-	 }
-	 // When the module is disposed, remove the <style> tags
-	 module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 15 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(8)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "\n.active{\n  height: 10px;\n  background: #000;\n}\n.dragperch{\n  display: none;\n}\n.dragging .dragperch{\n  display: block;\n}\n.dragbox:active{\n  opacity: 0;\n  height: 0px;\n  /*color:red;*/\n}\n", "", {"version":3,"sources":["/./src/dragbox.vue?69db793c"],"names":[],"mappings":";AAyFA;EACA,aAAA;EACA,iBAAA;CACA;AACA;EACA,cAAA;CACA;AACA;EACA,eAAA;CACA;AACA;EACA,WAAA;EACA,YAAA;EACA,cAAA;CACA","file":"dragbox.vue","sourcesContent":["<template>\n  <div class=\"dragbox\" @drop=\"drop($event)\"\n  @dragleave=\"dragleave($event,$el)\"\n  @dragover=\"allowDrop($event)\"\n  @dragenter=\"dragenter()\"\n  @mouseout=\"mouseout()\">\n    <div class=\"dragperch\">\n      <slot name=\"dragperch\"></slot>\n    </div>\n    <slot name=\"drag\"></slot>\n  </div>\n</template>\n<script>\n  Array.prototype.removeByObject = function(obj,indicate) {\n    for(var i=0; i<this.length; i++) {\n      if(this[i][indicate] == obj[indicate]) {\n        this.splice(i, 1);\n        break;\n      }\n    }\n    return this;\n  }\n  Array.prototype.insert = function (index, item) {\n    this.splice(index, 0, item);\n    return this;\n  };\n  Array.prototype.getIndexByObject = function (item,indicate) {\n    for(var i=0;i<this.length;i++){\n      if(this[i][indicate] == item[indicate]) {\n        return i;\n      }\n    }\n  };\n  export default {\n    props:{\n      item:{\n        type: Object,\n        required:true\n      },\n      indicate:{\n        type: String,\n        required:true\n      }\n    },\n    methods:{\n      drop(event){\n        this.removeAllDragging();\n        if(this.$parent.currentItem[this.indicate]!=this.item[this.indicate]){\n          this.$parent.list = this.$parent.list.\n          removeByObject(this.$parent.currentItem,'name');\n          this.$parent.list.insert(\n            this.$parent.list.getIndexByObject(this.item,'name')\n          ,this.$parent.currentItem)\n        }\n      },\n      removeAllDragging(){\n        for(var i=0;i<this.$parent.$children.length;i++){\n          this.$parent.$children[i].$el.classList.remove('dragging');\n        }\n      },\n      removeOtherDragging(){\n        for(var i=0;i<this.$parent.$children.length;i++){\n          if(this.$parent.targetItem&&this.$parent.targetItem[this.indicate]!=this.$parent.$children[i].item[this.indicate]){\n            this.$parent.$children[i].$el.classList.remove('dragging')\n          }\n        }\n      },\n      mouseout(){\n        this.removeAllDragging();\n      },\n      dragleave(){\n        // this.removeAllDragging()\n        console.log('离开目标作用域范围',this.$el);\n      },\n      dragenter(){\n        console.log('进入作用域范围',this.$el);\n      },\n      allowDrop(event){\n        event.preventDefault();\n        this.removeOtherDragging();\n        if(this.$parent.currentItem[this.indicate]!=this.item[this.indicate]){\n          this.$parent.targetItem = this.item;\n          this.$el.classList.add('dragging')\n        }\n      }\n    }\n  }\n</script>\n<style>\n  .active{\n    height: 10px;\n    background: #000;\n  }\n  .dragperch{\n    display: none;\n  }\n  .dragging .dragperch{\n    display: block;\n  }\n  .dragbox:active{\n    opacity: 0;\n    height: 0px;\n    /*color:red;*/\n  }\n</style>\n"],"sourceRoot":"webpack://"}]);
-	
-	// exports
-
-
-/***/ },
-/* 16 */
-/***/ function(module, exports) {
 
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	//
+	
+	var _drag = __webpack_require__(1);
+	
+	var _drag2 = _interopRequireDefault(_drag);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
 	//
 	//
 	//
@@ -803,6 +759,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	};
 	exports.default = {
+	  components: { drag: _drag2.default },
 	  props: {
 	    item: {
 	      type: Object,
@@ -814,12 +771,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  },
 	  methods: {
-	    drop: function drop(event) {
+	    drop: function drop() {
 	      this.removeAllDragging();
-	      if (this.$parent.currentItem[this.indicate] != this.item[this.indicate]) {
-	        this.$parent.list = this.$parent.list.removeByObject(this.$parent.currentItem, 'name');
-	        this.$parent.list.insert(this.$parent.list.getIndexByObject(this.item, 'name'), this.$parent.currentItem);
-	      }
+	      this.$parent.currentItem = null;
+	      // if(this.$parent.currentItem[this.indicate]!=this.item[this.indicate]){
+	      //   let index = this.$parent.list.getIndexByObject(this.item,'name')
+	      //   this.$parent.list = this.$parent.list.
+	      //   removeByObject(this.$parent.currentItem,'name');
+	      //   this.$parent.list.insert(index
+	      //   ,this.$parent.currentItem)
+	      // }
 	    },
 	    removeAllDragging: function removeAllDragging() {
 	      for (var i = 0; i < this.$parent.$children.length; i++) {
@@ -837,16 +798,22 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.removeAllDragging();
 	    },
 	    dragleave: function dragleave() {
+	      // this.$parent.currentItem = null;
 	      // this.removeAllDragging()
 	      console.log('离开目标作用域范围', this.$el);
 	    },
 	    dragenter: function dragenter() {
-	      console.log('进入作用域范围', this.$el);
+	      // console.log('进入作用域范围',this.$el);
+	      if (this.$parent.currentItem && this.$parent.currentItem[this.indicate] != this.item[this.indicate]) {
+	        var index = this.$parent.list.getIndexByObject(this.item, 'name');
+	        this.$parent.list = this.$parent.list.removeByObject(this.$parent.currentItem, 'name');
+	        this.$parent.list.insert(index, this.$parent.currentItem);
+	      }
 	    },
 	    allowDrop: function allowDrop(event) {
 	      event.preventDefault();
 	      this.removeOtherDragging();
-	      if (this.$parent.currentItem[this.indicate] != this.item[this.indicate]) {
+	      if (this.$parent.currentItem && this.$parent.currentItem[this.indicate] != this.item[this.indicate]) {
 	        this.$parent.targetItem = this.item;
 	        this.$el.classList.add('dragging');
 	      }
@@ -855,7 +822,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 17 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -878,15 +845,43 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _vm.mouseout()
 	      }
 	    }
-	  }, [_c('div', {
-	    staticClass: "dragperch"
-	  }, [_vm._t("dragperch")], 2), _vm._v(" "), _vm._t("drag")], 2)
+	  }, [_c('drag', {
+	    attrs: {
+	      "item": _vm.item
+	    }
+	  }, [_vm._t("default")], 2)], 1)
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()
 	  if (module.hot.data) {
 	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-37d34086", module.exports)
+	  }
+	}
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('div', {
+	    staticClass: "dragboot"
+	  }, _vm._l((_vm.list), function(item, $index) {
+	    return _c('dragbox', {
+	      attrs: {
+	        "item": item,
+	        "indicate": _vm.indicate
+	      }
+	    }, [_vm._t("default", null, {
+	      item: item
+	    })], 2)
+	  }))
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-921a2972", module.exports)
 	  }
 	}
 

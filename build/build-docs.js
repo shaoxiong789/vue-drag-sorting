@@ -9390,9 +9390,13 @@
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Component = __webpack_require__(3)(
+	
+	/* styles */
+	__webpack_require__(3)
+	
+	var Component = __webpack_require__(8)(
 	  /* script */
-	  __webpack_require__(4),
+	  __webpack_require__(9),
 	  /* template */
 	  __webpack_require__(21),
 	  /* scopeId */
@@ -9422,165 +9426,22 @@
 
 /***/ },
 /* 3 */
-/***/ function(module, exports) {
-
-	// this module is a runtime utility for cleaner component module output and will
-	// be included in the final webpack user bundle
-	
-	module.exports = function normalizeComponent (
-	  rawScriptExports,
-	  compiledTemplate,
-	  scopeId,
-	  cssModules
-	) {
-	  var esModule
-	  var scriptExports = rawScriptExports = rawScriptExports || {}
-	
-	  // ES6 modules interop
-	  var type = typeof rawScriptExports.default
-	  if (type === 'object' || type === 'function') {
-	    esModule = rawScriptExports
-	    scriptExports = rawScriptExports.default
-	  }
-	
-	  // Vue.extend constructor export interop
-	  var options = typeof scriptExports === 'function'
-	    ? scriptExports.options
-	    : scriptExports
-	
-	  // render functions
-	  if (compiledTemplate) {
-	    options.render = compiledTemplate.render
-	    options.staticRenderFns = compiledTemplate.staticRenderFns
-	  }
-	
-	  // scopedId
-	  if (scopeId) {
-	    options._scopeId = scopeId
-	  }
-	
-	  // inject cssModules
-	  if (cssModules) {
-	    var computed = Object.create(options.computed || null)
-	    Object.keys(cssModules).forEach(function (key) {
-	      var module = cssModules[key]
-	      computed[key] = function () { return module }
-	    })
-	    options.computed = computed
-	  }
-	
-	  return {
-	    esModule: esModule,
-	    exports: scriptExports,
-	    options: options
-	  }
-	}
-
-
-/***/ },
-/* 4 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _dragboot = __webpack_require__(5);
-	
-	var _dragboot2 = _interopRequireDefault(_dragboot);
-	
-	var _drag = __webpack_require__(13);
-	
-	var _drag2 = _interopRequireDefault(_drag);
-	
-	var _dragbox = __webpack_require__(16);
-	
-	var _dragbox2 = _interopRequireDefault(_dragbox);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = {
-	  components: { dragboot: _dragboot2.default, drag: _drag2.default, dragbox: _dragbox2.default },
-	  data: function data() {
-	    return {
-	      lists: [{ name: '1', color: 'red' }, { name: '2', color: 'orange' }, { name: '3', color: 'yellow' }, { name: '4', color: 'green' }, { name: '5', color: 'indigo' }, { name: '6', color: 'blue' }, { name: '7', color: 'purple' }]
-	    };
-	  }
-	}; //
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-
-/***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	
-	/* styles */
-	__webpack_require__(6)
-	
-	var Component = __webpack_require__(3)(
-	  /* script */
-	  __webpack_require__(11),
-	  /* template */
-	  __webpack_require__(12),
-	  /* scopeId */
-	  "data-v-921a2972",
-	  /* cssModules */
-	  null
-	)
-	Component.options.__file = "/Users/mybook/webpack/vue-drag/src/dragboot.vue"
-	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-	if (Component.options.functional) {console.error("[vue-loader] dragboot.vue: functional components are not supported with templates, they should use render functions.")}
-	
-	/* hot reload */
-	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
-	  hotAPI.install(require("vue"), false)
-	  if (!hotAPI.compatible) return
-	  module.hot.accept()
-	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-921a2972", Component.options)
-	  } else {
-	    hotAPI.reload("data-v-921a2972", Component.options)
-	  }
-	})()}
-	
-	module.exports = Component.exports
-
-
-/***/ },
-/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(7);
+	var content = __webpack_require__(4);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	if(content.locals) module.exports = content.locals;
 	// add the styles to the DOM
-	var update = __webpack_require__(9)("c81eb0d2", content, false);
+	var update = __webpack_require__(6)("49ac66b4", content, false);
 	// Hot Module Replacement
 	if(false) {
 	 // When the styles change, update the <style> tags
 	 if(!content.locals) {
-	   module.hot.accept("!!../node_modules/.0.21.0@css-loader/index.js?sourceMap!../node_modules/.11.3.3@vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-921a2972\",\"scoped\":true,\"hasInlineConfig\":false}!../node_modules/.11.3.3@vue-loader/lib/selector.js?type=styles&index=0!./dragboot.vue", function() {
-	     var newContent = require("!!../node_modules/.0.21.0@css-loader/index.js?sourceMap!../node_modules/.11.3.3@vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-921a2972\",\"scoped\":true,\"hasInlineConfig\":false}!../node_modules/.11.3.3@vue-loader/lib/selector.js?type=styles&index=0!./dragboot.vue");
+	   module.hot.accept("!!../node_modules/.0.21.0@css-loader/index.js?sourceMap!../node_modules/.11.3.3@vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-0ddc3a2a\",\"scoped\":false,\"hasInlineConfig\":false}!../node_modules/.11.3.3@vue-loader/lib/selector.js?type=styles&index=0!./bodyDocs.vue", function() {
+	     var newContent = require("!!../node_modules/.0.21.0@css-loader/index.js?sourceMap!../node_modules/.11.3.3@vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-0ddc3a2a\",\"scoped\":false,\"hasInlineConfig\":false}!../node_modules/.11.3.3@vue-loader/lib/selector.js?type=styles&index=0!./bodyDocs.vue");
 	     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 	     update(newContent);
 	   });
@@ -9590,21 +9451,21 @@
 	}
 
 /***/ },
-/* 7 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(8)();
+	exports = module.exports = __webpack_require__(5)();
 	// imports
 	
 	
 	// module
-	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"dragboot.vue","sourceRoot":"webpack://"}]);
+	exports.push([module.id, "\n.md-theme-blue.md-toolbar {\n  background-color: #2196f3;\n  color: rgba(255, 255, 255, .87);\n}\n.md-toolbar {\n    min-height: 64px;\n    padding: 0 8px;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: center;\n    align-items: center;\n    -ms-flex-line-pack: center;\n    align-content: center;\n    -ms-flex-flow: row wrap;\n    flex-flow: row wrap;\n    position: relative;\n    transition: all .4s cubic-bezier(.25,.8,.25,1);\n    transform: translate3D(0,0,0);\n}\n.container {\n    width: 75em;\n    margin: 0 auto;\n}\n.md-title {\n    font-size: 20px;\n    font-weight: 500;\n    letter-spacing: .005em;\n    line-height: 26px;\n}\n.md-toolbar .md-title {\n    margin: 0;\n    font-size: 20px;\n    font-weight: 400;\n}\n.md-toolbar .md-title:first-child {\n    margin-left: 8px;\n}\n.md-ink-ripple {\n    pointer-events: none;\n    overflow: hidden;\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    -webkit-mask-image: radial-gradient(circle,#fff 100%,#000 0);\n    mask-image: radial-gradient(circle,#fff 100%,#000 0);\n    transition: all .3s cubic-bezier(.55,0,.55,.2);\n}\n.md-ripple.md-active {\n    animation: ripple 1s cubic-bezier(.25,.8,.25,1);\n}\nmain{\n  margin-top: 50px;\n}\n.dragboot{\n  width: 200px;\n  margin-left: 10px;\n  /*float: left;*/\n}\n", "", {"version":3,"sources":["/./docs/bodyDocs.vue?74c005a0"],"names":[],"mappings":";AACA;EACA,0BAAA;EACA,gCAAA;CACA;AACA;IACA,iBAAA;IACA,eAAA;IACA,qBAAA;IACA,cAAA;IACA,uBAAA;IACA,oBAAA;IACA,2BAAA;IACA,sBAAA;IACA,wBAAA;IACA,oBAAA;IACA,mBAAA;IACA,+CAAA;IACA,8BAAA;CACA;AACA;IACA,YAAA;IACA,eAAA;CACA;AACA;IACA,gBAAA;IACA,iBAAA;IACA,uBAAA;IACA,kBAAA;CACA;AACA;IACA,UAAA;IACA,gBAAA;IACA,iBAAA;CACA;AACA;IACA,iBAAA;CACA;AACA;IACA,qBAAA;IACA,iBAAA;IACA,mBAAA;IACA,OAAA;IACA,SAAA;IACA,UAAA;IACA,QAAA;IACA,6DAAA;IACA,qDAAA;IACA,+CAAA;CACA;AACA;IACA,gDAAA;CACA;AACA;EACA,iBAAA;CACA;AACA;EACA,aAAA;EACA,kBAAA;EACA,gBAAA;CACA","file":"bodyDocs.vue","sourcesContent":["<style>\n.md-theme-blue.md-toolbar {\n  background-color: #2196f3;\n  color: rgba(255, 255, 255, .87);\n}\n.md-toolbar {\n    min-height: 64px;\n    padding: 0 8px;\n    display: -ms-flexbox;\n    display: flex;\n    -ms-flex-align: center;\n    align-items: center;\n    -ms-flex-line-pack: center;\n    align-content: center;\n    -ms-flex-flow: row wrap;\n    flex-flow: row wrap;\n    position: relative;\n    transition: all .4s cubic-bezier(.25,.8,.25,1);\n    transform: translate3D(0,0,0);\n}\n.container {\n    width: 75em;\n    margin: 0 auto;\n}\n.md-title {\n    font-size: 20px;\n    font-weight: 500;\n    letter-spacing: .005em;\n    line-height: 26px;\n}\n.md-toolbar .md-title {\n    margin: 0;\n    font-size: 20px;\n    font-weight: 400;\n}\n.md-toolbar .md-title:first-child {\n    margin-left: 8px;\n}\n.md-ink-ripple {\n    pointer-events: none;\n    overflow: hidden;\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    -webkit-mask-image: radial-gradient(circle,#fff 100%,#000 0);\n    mask-image: radial-gradient(circle,#fff 100%,#000 0);\n    transition: all .3s cubic-bezier(.55,0,.55,.2);\n}\n.md-ripple.md-active {\n    animation: ripple 1s cubic-bezier(.25,.8,.25,1);\n}\nmain{\n  margin-top: 50px;\n}\n.dragboot{\n  width: 200px;\n  margin-left: 10px;\n  /*float: left;*/\n}\n</style>\n<template>\n  <div>\n    <header class=\"header\">\n      <div class=\"md-toolbar md-theme-blue\">\n        <div class=\"container\">\n          <div class=\"md-title\">Vue-Drag</div>\n        </div>\n        <div class=\"md-ink-ripple\">\n          <div class=\"md-ripple md-active\" style=\"width: 1234px; height: 1234px; top: -575px; left: -147px;\"></div>\n        </div>\n      </div>\n    </header>\n    <main>\n      <dragboot :list=\"lists\" indicate=\"name\">\n        <template scope=\"props\">\n          <div :style=\"{background:props.item.color}\">\n            {{props.item.name}}\n          </div>\n          \n        </template>\n      </dragboot>\n    </main>\n  </div>\n</template>\n<script>\nimport dragboot from '../src/dragboot.vue'\n\nexport default {\n  components:{dragboot},\n  data() {\n      return {\n        lists:[\n          {name:'鸿钧老祖',color:'red',children:[\n            {name:'太上老君',color:'orange'},{name:'元始天尊',color:'yellow'},\n            {name:'通天教主',color:'yellow'}\n          ]},\n          {name:'混鲲祖师',color:'orange',children:[\n            {name:'接引道人',color:'blue'},{name:'准提道人',color:'yellow'}\n          ]},\n          {name:'女娲娘娘',color:'yellow'},\n          {name:'陆压道君',color:'green'}\n        ]\n      }\n  }\n}\n</script>\n"],"sourceRoot":"webpack://"}]);
 	
 	// exports
 
 
 /***/ },
-/* 8 */
+/* 5 */
 /***/ function(module, exports) {
 
 	/*
@@ -9660,7 +9521,7 @@
 
 
 /***/ },
-/* 9 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -9679,7 +9540,7 @@
 	  ) }
 	}
 	
-	var listToStyles = __webpack_require__(10)
+	var listToStyles = __webpack_require__(7)
 	
 	/*
 	type StyleObject = {
@@ -9881,7 +9742,7 @@
 
 
 /***/ },
-/* 10 */
+/* 7 */
 /***/ function(module, exports) {
 
 	/**
@@ -9914,25 +9775,275 @@
 
 
 /***/ },
-/* 11 */
+/* 8 */
 /***/ function(module, exports) {
 
-	"use strict";
+	// this module is a runtime utility for cleaner component module output and will
+	// be included in the final webpack user bundle
+	
+	module.exports = function normalizeComponent (
+	  rawScriptExports,
+	  compiledTemplate,
+	  scopeId,
+	  cssModules
+	) {
+	  var esModule
+	  var scriptExports = rawScriptExports = rawScriptExports || {}
+	
+	  // ES6 modules interop
+	  var type = typeof rawScriptExports.default
+	  if (type === 'object' || type === 'function') {
+	    esModule = rawScriptExports
+	    scriptExports = rawScriptExports.default
+	  }
+	
+	  // Vue.extend constructor export interop
+	  var options = typeof scriptExports === 'function'
+	    ? scriptExports.options
+	    : scriptExports
+	
+	  // render functions
+	  if (compiledTemplate) {
+	    options.render = compiledTemplate.render
+	    options.staticRenderFns = compiledTemplate.staticRenderFns
+	  }
+	
+	  // scopedId
+	  if (scopeId) {
+	    options._scopeId = scopeId
+	  }
+	
+	  // inject cssModules
+	  if (cssModules) {
+	    var computed = Object.create(options.computed || null)
+	    Object.keys(cssModules).forEach(function (key) {
+	      var module = cssModules[key]
+	      computed[key] = function () { return module }
+	    })
+	    options.computed = computed
+	  }
+	
+	  return {
+	    esModule: esModule,
+	    exports: scriptExports,
+	    options: options
+	  }
+	}
+
+
+/***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	//
-	//
-	//
-	//
-	//
+	
+	var _dragboot = __webpack_require__(10);
+	
+	var _dragboot2 = _interopRequireDefault(_dragboot);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
-	  components: {},
+	  components: { dragboot: _dragboot2.default },
+	  data: function data() {
+	    return {
+	      lists: [{ name: '鸿钧老祖', color: 'red', children: [{ name: '太上老君', color: 'orange' }, { name: '元始天尊', color: 'yellow' }, { name: '通天教主', color: 'yellow' }] }, { name: '混鲲祖师', color: 'orange', children: [{ name: '接引道人', color: 'blue' }, { name: '准提道人', color: 'yellow' }] }, { name: '女娲娘娘', color: 'yellow' }, { name: '陆压道君', color: 'green' }]
+	    };
+	  }
+	}; //
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	/* styles */
+	__webpack_require__(11)
+	
+	var Component = __webpack_require__(8)(
+	  /* script */
+	  __webpack_require__(13),
+	  /* template */
+	  __webpack_require__(20),
+	  /* scopeId */
+	  "data-v-921a2972",
+	  /* cssModules */
+	  null
+	)
+	Component.options.__file = "/Users/mybook/webpack/vue-drag/src/dragboot.vue"
+	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+	if (Component.options.functional) {console.error("[vue-loader] dragboot.vue: functional components are not supported with templates, they should use render functions.")}
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-921a2972", Component.options)
+	  } else {
+	    hotAPI.reload("data-v-921a2972", Component.options)
+	  }
+	})()}
+	
+	module.exports = Component.exports
+
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(12);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	if(content.locals) module.exports = content.locals;
+	// add the styles to the DOM
+	var update = __webpack_require__(6)("c81eb0d2", content, false);
+	// Hot Module Replacement
+	if(false) {
+	 // When the styles change, update the <style> tags
+	 if(!content.locals) {
+	   module.hot.accept("!!../node_modules/.0.21.0@css-loader/index.js?sourceMap!../node_modules/.11.3.3@vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-921a2972\",\"scoped\":true,\"hasInlineConfig\":false}!../node_modules/.11.3.3@vue-loader/lib/selector.js?type=styles&index=0!./dragboot.vue", function() {
+	     var newContent = require("!!../node_modules/.0.21.0@css-loader/index.js?sourceMap!../node_modules/.11.3.3@vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-921a2972\",\"scoped\":true,\"hasInlineConfig\":false}!../node_modules/.11.3.3@vue-loader/lib/selector.js?type=styles&index=0!./dragboot.vue");
+	     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+	     update(newContent);
+	   });
+	 }
+	 // When the module is disposed, remove the <style> tags
+	 module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(5)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", "", {"version":3,"sources":[],"names":[],"mappings":"","file":"dragboot.vue","sourceRoot":"webpack://"}]);
+	
+	// exports
+
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _dragbox = __webpack_require__(14);
+	
+	var _dragbox2 = _interopRequireDefault(_dragbox);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	  components: { dragbox: _dragbox2.default },
 	  props: {
 	    list: {
 	      type: Array,
+	      required: false
+	    },
+	    indicate: {
+	      type: String,
 	      required: true
 	    }
 	  },
@@ -9945,34 +10056,168 @@
 	  },
 	
 	  methods: {}
+	}; //
+	//
+	//
+	//
+	//
+	//
+	//
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Component = __webpack_require__(8)(
+	  /* script */
+	  __webpack_require__(15),
+	  /* template */
+	  __webpack_require__(19),
+	  /* scopeId */
+	  null,
+	  /* cssModules */
+	  null
+	)
+	Component.options.__file = "/Users/mybook/webpack/vue-drag/src/dragbox.vue"
+	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
+	if (Component.options.functional) {console.error("[vue-loader] dragbox.vue: functional components are not supported with templates, they should use render functions.")}
+	
+	/* hot reload */
+	if (false) {(function () {
+	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+	  hotAPI.install(require("vue"), false)
+	  if (!hotAPI.compatible) return
+	  module.hot.accept()
+	  if (!module.hot.data) {
+	    hotAPI.createRecord("data-v-37d34086", Component.options)
+	  } else {
+	    hotAPI.reload("data-v-37d34086", Component.options)
+	  }
+	})()}
+	
+	module.exports = Component.exports
+
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _drag = __webpack_require__(16);
+	
+	var _drag2 = _interopRequireDefault(_drag);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	//
+	
+	Array.prototype.removeByObject = function (obj, indicate) {
+	  for (var i = 0; i < this.length; i++) {
+	    if (this[i][indicate] == obj[indicate]) {
+	      this.splice(i, 1);
+	      break;
+	    }
+	  }
+	  return this;
+	};
+	Array.prototype.insert = function (index, item) {
+	  this.splice(index, 0, item);
+	  return this;
+	};
+	Array.prototype.getIndexByObject = function (item, indicate) {
+	  for (var i = 0; i < this.length; i++) {
+	    if (this[i][indicate] == item[indicate]) {
+	      return i;
+	    }
+	  }
+	};
+	exports.default = {
+	  components: { drag: _drag2.default },
+	  props: {
+	    item: {
+	      type: Object,
+	      required: true
+	    },
+	    indicate: {
+	      type: String,
+	      required: true
+	    }
+	  },
+	  methods: {
+	    drop: function drop() {
+	      this.removeAllDragging();
+	      this.$parent.currentItem = null;
+	      // if(this.$parent.currentItem[this.indicate]!=this.item[this.indicate]){
+	      //   let index = this.$parent.list.getIndexByObject(this.item,'name')
+	      //   this.$parent.list = this.$parent.list.
+	      //   removeByObject(this.$parent.currentItem,'name');
+	      //   this.$parent.list.insert(index
+	      //   ,this.$parent.currentItem)
+	      // }
+	    },
+	    removeAllDragging: function removeAllDragging() {
+	      for (var i = 0; i < this.$parent.$children.length; i++) {
+	        this.$parent.$children[i].$el.classList.remove('dragging');
+	      }
+	    },
+	    removeOtherDragging: function removeOtherDragging() {
+	      for (var i = 0; i < this.$parent.$children.length; i++) {
+	        if (this.$parent.targetItem && this.$parent.targetItem[this.indicate] != this.$parent.$children[i].item[this.indicate]) {
+	          this.$parent.$children[i].$el.classList.remove('dragging');
+	        }
+	      }
+	    },
+	    mouseout: function mouseout() {
+	      this.removeAllDragging();
+	    },
+	    dragleave: function dragleave() {
+	      // this.$parent.currentItem = null;
+	      // this.removeAllDragging()
+	      console.log('离开目标作用域范围', this.$el);
+	    },
+	    dragenter: function dragenter() {
+	      // console.log('进入作用域范围',this.$el);
+	      if (this.$parent.currentItem && this.$parent.currentItem[this.indicate] != this.item[this.indicate]) {
+	        var index = this.$parent.list.getIndexByObject(this.item, 'name');
+	        this.$parent.list = this.$parent.list.removeByObject(this.$parent.currentItem, 'name');
+	        this.$parent.list.insert(index, this.$parent.currentItem);
+	      }
+	    },
+	    allowDrop: function allowDrop(event) {
+	      event.preventDefault();
+	      this.removeOtherDragging();
+	      if (this.$parent.currentItem && this.$parent.currentItem[this.indicate] != this.item[this.indicate]) {
+	        this.$parent.targetItem = this.item;
+	        this.$el.classList.add('dragging');
+	      }
+	    }
+	  }
 	};
 
 /***/ },
-/* 12 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('div', {
-	    staticClass: "dragboot"
-	  }, [_vm._t("default")], 2)
-	},staticRenderFns: []}
-	module.exports.render._withStripped = true
-	if (false) {
-	  module.hot.accept()
-	  if (module.hot.data) {
-	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-921a2972", module.exports)
-	  }
-	}
-
-/***/ },
-/* 13 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Component = __webpack_require__(3)(
+	var Component = __webpack_require__(8)(
 	  /* script */
-	  __webpack_require__(14),
+	  __webpack_require__(17),
 	  /* template */
-	  __webpack_require__(15),
+	  __webpack_require__(18),
 	  /* scopeId */
 	  null,
 	  /* cssModules */
@@ -9999,7 +10244,7 @@
 
 
 /***/ },
-/* 14 */
+/* 17 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -10036,7 +10281,7 @@
 	};
 
 /***/ },
-/* 15 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -10064,179 +10309,7 @@
 	}
 
 /***/ },
-/* 16 */
-/***/ function(module, exports, __webpack_require__) {
-
-	
-	/* styles */
-	__webpack_require__(17)
-	
-	var Component = __webpack_require__(3)(
-	  /* script */
-	  __webpack_require__(19),
-	  /* template */
-	  __webpack_require__(20),
-	  /* scopeId */
-	  null,
-	  /* cssModules */
-	  null
-	)
-	Component.options.__file = "/Users/mybook/webpack/vue-drag/src/dragbox.vue"
-	if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key !== "__esModule"})) {console.error("named exports are not supported in *.vue files.")}
-	if (Component.options.functional) {console.error("[vue-loader] dragbox.vue: functional components are not supported with templates, they should use render functions.")}
-	
-	/* hot reload */
-	if (false) {(function () {
-	  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
-	  hotAPI.install(require("vue"), false)
-	  if (!hotAPI.compatible) return
-	  module.hot.accept()
-	  if (!module.hot.data) {
-	    hotAPI.createRecord("data-v-37d34086", Component.options)
-	  } else {
-	    hotAPI.reload("data-v-37d34086", Component.options)
-	  }
-	})()}
-	
-	module.exports = Component.exports
-
-
-/***/ },
-/* 17 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(18);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	if(content.locals) module.exports = content.locals;
-	// add the styles to the DOM
-	var update = __webpack_require__(9)("1f9bd592", content, false);
-	// Hot Module Replacement
-	if(false) {
-	 // When the styles change, update the <style> tags
-	 if(!content.locals) {
-	   module.hot.accept("!!../node_modules/.0.21.0@css-loader/index.js?sourceMap!../node_modules/.11.3.3@vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-37d34086\",\"scoped\":false,\"hasInlineConfig\":false}!../node_modules/.11.3.3@vue-loader/lib/selector.js?type=styles&index=0!./dragbox.vue", function() {
-	     var newContent = require("!!../node_modules/.0.21.0@css-loader/index.js?sourceMap!../node_modules/.11.3.3@vue-loader/lib/style-compiler/index.js?{\"id\":\"data-v-37d34086\",\"scoped\":false,\"hasInlineConfig\":false}!../node_modules/.11.3.3@vue-loader/lib/selector.js?type=styles&index=0!./dragbox.vue");
-	     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-	     update(newContent);
-	   });
-	 }
-	 // When the module is disposed, remove the <style> tags
-	 module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 18 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(8)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, "\n.active{\n  height: 10px;\n  background: #000;\n}\n.dragperch{\n  display: none;\n}\n.dragging .dragperch{\n  display: block;\n}\n.dragbox:active{\n  opacity: 0;\n  height: 0px;\n  /*color:red;*/\n}\n", "", {"version":3,"sources":["/./src/dragbox.vue?69db793c"],"names":[],"mappings":";AAyFA;EACA,aAAA;EACA,iBAAA;CACA;AACA;EACA,cAAA;CACA;AACA;EACA,eAAA;CACA;AACA;EACA,WAAA;EACA,YAAA;EACA,cAAA;CACA","file":"dragbox.vue","sourcesContent":["<template>\n  <div class=\"dragbox\" @drop=\"drop($event)\"\n  @dragleave=\"dragleave($event,$el)\"\n  @dragover=\"allowDrop($event)\"\n  @dragenter=\"dragenter()\"\n  @mouseout=\"mouseout()\">\n    <div class=\"dragperch\">\n      <slot name=\"dragperch\"></slot>\n    </div>\n    <slot name=\"drag\"></slot>\n  </div>\n</template>\n<script>\n  Array.prototype.removeByObject = function(obj,indicate) {\n    for(var i=0; i<this.length; i++) {\n      if(this[i][indicate] == obj[indicate]) {\n        this.splice(i, 1);\n        break;\n      }\n    }\n    return this;\n  }\n  Array.prototype.insert = function (index, item) {\n    this.splice(index, 0, item);\n    return this;\n  };\n  Array.prototype.getIndexByObject = function (item,indicate) {\n    for(var i=0;i<this.length;i++){\n      if(this[i][indicate] == item[indicate]) {\n        return i;\n      }\n    }\n  };\n  export default {\n    props:{\n      item:{\n        type: Object,\n        required:true\n      },\n      indicate:{\n        type: String,\n        required:true\n      }\n    },\n    methods:{\n      drop(event){\n        this.removeAllDragging();\n        if(this.$parent.currentItem[this.indicate]!=this.item[this.indicate]){\n          this.$parent.list = this.$parent.list.\n          removeByObject(this.$parent.currentItem,'name');\n          this.$parent.list.insert(\n            this.$parent.list.getIndexByObject(this.item,'name')\n          ,this.$parent.currentItem)\n        }\n      },\n      removeAllDragging(){\n        for(var i=0;i<this.$parent.$children.length;i++){\n          this.$parent.$children[i].$el.classList.remove('dragging');\n        }\n      },\n      removeOtherDragging(){\n        for(var i=0;i<this.$parent.$children.length;i++){\n          if(this.$parent.targetItem&&this.$parent.targetItem[this.indicate]!=this.$parent.$children[i].item[this.indicate]){\n            this.$parent.$children[i].$el.classList.remove('dragging')\n          }\n        }\n      },\n      mouseout(){\n        this.removeAllDragging();\n      },\n      dragleave(){\n        // this.removeAllDragging()\n        console.log('离开目标作用域范围',this.$el);\n      },\n      dragenter(){\n        console.log('进入作用域范围',this.$el);\n      },\n      allowDrop(event){\n        event.preventDefault();\n        this.removeOtherDragging();\n        if(this.$parent.currentItem[this.indicate]!=this.item[this.indicate]){\n          this.$parent.targetItem = this.item;\n          this.$el.classList.add('dragging')\n        }\n      }\n    }\n  }\n</script>\n<style>\n  .active{\n    height: 10px;\n    background: #000;\n  }\n  .dragperch{\n    display: none;\n  }\n  .dragging .dragperch{\n    display: block;\n  }\n  .dragbox:active{\n    opacity: 0;\n    height: 0px;\n    /*color:red;*/\n  }\n</style>\n"],"sourceRoot":"webpack://"}]);
-	
-	// exports
-
-
-/***/ },
 /* 19 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	//
-	
-	Array.prototype.removeByObject = function (obj, indicate) {
-	  for (var i = 0; i < this.length; i++) {
-	    if (this[i][indicate] == obj[indicate]) {
-	      this.splice(i, 1);
-	      break;
-	    }
-	  }
-	  return this;
-	};
-	Array.prototype.insert = function (index, item) {
-	  this.splice(index, 0, item);
-	  return this;
-	};
-	Array.prototype.getIndexByObject = function (item, indicate) {
-	  for (var i = 0; i < this.length; i++) {
-	    if (this[i][indicate] == item[indicate]) {
-	      return i;
-	    }
-	  }
-	};
-	exports.default = {
-	  props: {
-	    item: {
-	      type: Object,
-	      required: true
-	    },
-	    indicate: {
-	      type: String,
-	      required: true
-	    }
-	  },
-	  methods: {
-	    drop: function drop(event) {
-	      this.removeAllDragging();
-	      if (this.$parent.currentItem[this.indicate] != this.item[this.indicate]) {
-	        this.$parent.list = this.$parent.list.removeByObject(this.$parent.currentItem, 'name');
-	        this.$parent.list.insert(this.$parent.list.getIndexByObject(this.item, 'name'), this.$parent.currentItem);
-	      }
-	    },
-	    removeAllDragging: function removeAllDragging() {
-	      for (var i = 0; i < this.$parent.$children.length; i++) {
-	        this.$parent.$children[i].$el.classList.remove('dragging');
-	      }
-	    },
-	    removeOtherDragging: function removeOtherDragging() {
-	      for (var i = 0; i < this.$parent.$children.length; i++) {
-	        if (this.$parent.targetItem && this.$parent.targetItem[this.indicate] != this.$parent.$children[i].item[this.indicate]) {
-	          this.$parent.$children[i].$el.classList.remove('dragging');
-	        }
-	      }
-	    },
-	    mouseout: function mouseout() {
-	      this.removeAllDragging();
-	    },
-	    dragleave: function dragleave() {
-	      // this.removeAllDragging()
-	      console.log('离开目标作用域范围', this.$el);
-	    },
-	    dragenter: function dragenter() {
-	      console.log('进入作用域范围', this.$el);
-	    },
-	    allowDrop: function allowDrop(event) {
-	      event.preventDefault();
-	      this.removeOtherDragging();
-	      if (this.$parent.currentItem[this.indicate] != this.item[this.indicate]) {
-	        this.$parent.targetItem = this.item;
-	        this.$el.classList.add('dragging');
-	      }
-	    }
-	  }
-	};
-
-/***/ },
-/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -10259,9 +10332,11 @@
 	        _vm.mouseout()
 	      }
 	    }
-	  }, [_c('div', {
-	    staticClass: "dragperch"
-	  }, [_vm._t("dragperch")], 2), _vm._v(" "), _vm._t("drag")], 2)
+	  }, [_c('drag', {
+	    attrs: {
+	      "item": _vm.item
+	    }
+	  }, [_vm._t("default")], 2)], 1)
 	},staticRenderFns: []}
 	module.exports.render._withStripped = true
 	if (false) {
@@ -10272,34 +10347,72 @@
 	}
 
 /***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('div', {
+	    staticClass: "dragboot"
+	  }, _vm._l((_vm.list), function(item, $index) {
+	    return _c('dragbox', {
+	      attrs: {
+	        "item": item,
+	        "indicate": _vm.indicate
+	      }
+	    }, [_vm._t("default", null, {
+	      item: item
+	    })], 2)
+	  }))
+	},staticRenderFns: []}
+	module.exports.render._withStripped = true
+	if (false) {
+	  module.hot.accept()
+	  if (module.hot.data) {
+	     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-921a2972", module.exports)
+	  }
+	}
+
+/***/ },
 /* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-	  return _c('div', [_c('dragboot', {
+	  return _c('div', [_vm._m(0), _vm._v(" "), _c('main', [_c('dragboot', {
 	    attrs: {
-	      "list": _vm.lists
+	      "list": _vm.lists,
+	      "indicate": "name"
+	    },
+	    scopedSlots: _vm._u([
+	      ["default", function(props) {
+	        return [_c('div', {
+	          style: ({
+	            background: props.item.color
+	          })
+	        }, [_vm._v("\n          " + _vm._s(props.item.name) + "\n        ")])]
+	      }]
+	    ])
+	  })], 1)])
+	},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+	  return _c('header', {
+	    staticClass: "header"
+	  }, [_c('div', {
+	    staticClass: "md-toolbar md-theme-blue"
+	  }, [_c('div', {
+	    staticClass: "container"
+	  }, [_c('div', {
+	    staticClass: "md-title"
+	  }, [_vm._v("Vue-Drag")])]), _vm._v(" "), _c('div', {
+	    staticClass: "md-ink-ripple"
+	  }, [_c('div', {
+	    staticClass: "md-ripple md-active",
+	    staticStyle: {
+	      "width": "1234px",
+	      "height": "1234px",
+	      "top": "-575px",
+	      "left": "-147px"
 	    }
-	  }, _vm._l((_vm.lists), function(item, $index) {
-	    return _c('dragbox', {
-	      attrs: {
-	        "item": item,
-	        "indicate": "name"
-	      }
-	    }, [_c('div', {
-	      slot: "dragperch"
-	    }, [_vm._v("\n        预留空位\n      ")]), _vm._v(" "), _c('drag', {
-	      attrs: {
-	        "item": item
-	      },
-	      slot: "drag"
-	    }, [_c('div', {
-	      style: ({
-	        background: item.color
-	      })
-	    }, [_vm._v("\n          拖拽目标" + _vm._s(item.name) + "\n        ")])])], 1)
-	  }))], 1)
-	},staticRenderFns: []}
+	  })])])])
+	}]}
 	module.exports.render._withStripped = true
 	if (false) {
 	  module.hot.accept()

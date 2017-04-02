@@ -4,6 +4,7 @@
   "description": "vue2.0 拖拽排版控件",
   "main": "dist/vue-drag.js",
   "scripts": {
+    "docs": "webpack-dev-server --inline --hot --quiet",
     "builddocs": "webpack --progress --hide-modules && set NODE_ENV=production webpack --progress --hide-modules",
     "build": "webpack --progress --hide-modules --config  webpack.build.min.js && webpack --progress --hide-modules --config  webpack.build.js"
   },
@@ -25,7 +26,8 @@
     "vue": "^2.1.0",
     "vue-loader": "^11.3.1",
     "vue-resource": "^1.0.3",
-    "vue-template-compiler": "^2.1.0"
+    "vue-template-compiler": "^2.1.0",
+    "vuex": "^2.2.1"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",

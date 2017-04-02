@@ -1,14 +1,21 @@
 <template>
   <div class="dragboot">
-    <slot></slot>
+    <dragbox v-for="(item,$index) in list" :item="item" :indicate="indicate">
+      <slot :item="item"></slot>
+    </dragbox>
   </div>
 </template>
 <script>
+import dragbox from './dragbox.vue'
 export default {
-    components:{},
+    components:{dragbox},
     props:{
       list:{
         type: Array,
+        required:false
+      },
+      indicate:{
+        type: String,
         required:true
       }
     },

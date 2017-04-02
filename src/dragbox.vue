@@ -4,10 +4,9 @@
   @dragover="allowDrop($event)"
   @dragenter="dragenter()"
   @mouseout="mouseout()">
-    <div class="dragperch">
-      <slot name="dragperch"></slot>
-    </div>
-    <slot name="drag"></slot>
+    <drag :item="item">
+      <slot></slot>
+    </drag>
   </div>
 </template>
 <script>
@@ -31,7 +30,9 @@
       }
     }
   };
+  import drag from './drag.vue'
   export default {
+    components:{drag},
     props:{
       item:{
         type: Object,
@@ -43,15 +44,16 @@
       }
     },
     methods:{
-      drop(event){
+      drop(){
         this.removeAllDragging();
-        if(this.$parent.currentItem[this.indicate]!=this.item[this.indicate]){
-          this.$parent.list = this.$parent.list.
-          removeByObject(this.$parent.currentItem,'name');
-          this.$parent.list.insert(
-            this.$parent.list.getIndexByObject(this.item,'name')
-          ,this.$parent.currentItem)
-        }
+        this.$parent.currentItem = null;
+        // if(this.$parent.currentItem[this.indicate]!=this.item[this.indicate]){
+        //   let index = this.$parent.list.getIndexByObject(this.item,'name')
+        //   this.$parent.list = this.$parent.list.
+        //   removeByObject(this.$parent.currentItem,'name');
+        //   this.$parent.list.insert(index
+        //   ,this.$parent.currentItem)
+        // }
       },
       removeAllDragging(){
         for(var i=0;i<this.$parent.$children.length;i++){
@@ -69,16 +71,24 @@
         this.removeAllDragging();
       },
       dragleave(){
+        // this.$parent.currentItem = null;
         // this.removeAllDragging()
         console.log('离开目标作用域范围',this.$el);
       },
       dragenter(){
-        console.log('进入作用域范围',this.$el);
+        // console.log('进入作用域范围',this.$el);
+        if(this.$parent.currentItem&&this.$parent.currentItem[this.indicate]!=this.item[this.indicate]){
+          let index = this.$parent.list.getIndexByObject(this.item,'name')
+          this.$parent.list = this.$parent.list.
+          removeByObject(this.$parent.currentItem,'name');
+          this.$parent.list.insert(index
+          ,this.$parent.currentItem)
+        }
       },
       allowDrop(event){
         event.preventDefault();
         this.removeOtherDragging();
-        if(this.$parent.currentItem[this.indicate]!=this.item[this.indicate]){
+        if(this.$parent.currentItem&&this.$parent.currentItem[this.indicate]!=this.item[this.indicate]){
           this.$parent.targetItem = this.item;
           this.$el.classList.add('dragging')
         }
@@ -86,20 +96,3 @@
     }
   }
 </script>
-<style>
-  .active{
-    height: 10px;
-    background: #000;
-  }
-  .dragperch{
-    display: none;
-  }
-  .dragging .dragperch{
-    display: block;
-  }
-  .dragbox:active{
-    opacity: 0;
-    height: 0px;
-    /*color:red;*/
-  }
-</style>
