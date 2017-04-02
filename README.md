@@ -11,18 +11,13 @@ $ npm install git://github.com/shaoxiong789/vue-drag.git --save
 ```js
 <template>
   <div>
-    <dragboot :list="lists">
-      <dragbox v-for="(item,$index) in lists" :item="item" indicate="name">
-        <div slot="dragperch">
-          预留空位
-        </div>
-        <drag slot="drag" :item="item">
-          <div :style="{background:item.color}">
-            拖拽目标{{item.name}}
+      <dragboot :list="lists" indicate="name">
+        <template scope="props">
+          <div :style="{background:props.item.color}">
+            {{props.item.name}}
           </div>
-        </drag>
-      </dragbox>
-    </dragboot>
+        </template>
+      </dragboot>
   </div>
 </template>
 <script>
